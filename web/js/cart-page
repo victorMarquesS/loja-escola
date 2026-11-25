@@ -1,0 +1,67 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("listaCarrinho");
+    const totalItensEl = document.getElementById("totalItensCarrinho");
+    const totalPrecoEl = document.getElementById("totalCarrinho");
+    const btnCheckout = document.getElementById("btnIrCheckout");
+
+    function renderizarCarrinho() {
+        const carrinho = getCarrinho();
+        container.innerHTML = "";
+        let totalPreco = 0;
+        let totalItens = 0;
+
+        if (carrinho.length === 0) {
+            container.innerHTML = `
+                <div class="alert alert-info border-0 text-center bg-dark">
+                    <h3 class="h5 text-light">Seu carrinho está vazio!</h3>
+                    <p class="mb-0 text-secondary">Volte para a vitrine e adquira artefatos incríveis.</p>
+                </div>`;
+            btnCheckout.classList.add("disabled");
+            btnCheckout.style.pointerEvents = "none";
+            totalPrecoEl.textContent = "R$ 0,00";
+            totalItensEl.textContent = "0";
+            return;
+        }
+
+        btnCheckout.classList.remove("disabled");
+        btnCheckout.style.pointerEvents = "auto";
+
+        carrinho.forEach(item => {
+            const produto = produtos.find(p => p.id === item.id);
+            if (!produto) return;
+
+            const subtotal = produto.preco * item.quantidade;
+            totalPreco += subtotal;
+            totalItens += item.quantidade;
+
+            const card = document.createElement("div");
+            card.className = "card bg-dark border-secondary p-3 d-flex flex-row align-items-center gap-3 flex-wrap";
+            card.innerHTML = `
+                <div class="fs-1">${produto.icone}</div>
+                <div class="flex-grow-1">
+                    <h3 class="h5 mb-1 text-light">${produto.nome}</h3>
+                    <p class="text-secondary small mb-0">Preço unitário: R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
+                </div>
+                <div class="text-center px-3">
+                    <label class="small text-secondary d-block">Qtd.</label>
+                    <span class="fs-5 text-light fw-bold">${item.quantidade}</span>
+                </div>
+                <div class="text-end" style="min-width: 140px;">
+                    <p class="text-accent fw-bold mb-2 fs-5">R$ ${subtotal.toFixed(2).replace('.', ',')}</p>
+                    <button class="btn btn-sm btn-outline-danger" onclick="removerItem(${produto.id})">Remover</button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        totalItensEl.textContent = totalItens;
+        totalPrecoEl.textContent = `R$ ${totalPreco.toFixed(2).replace('.', ',')}`;
+    }
+
+    window.removerItem = function(id) {
+        removerDoCarrinho(id);
+        renderizarCarrinho();
+    };
+
+    renderizarCarrinho();
+});

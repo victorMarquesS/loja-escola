@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Formulário de finalização de compra da Loja Escola.">
-  <title>Loja Escola | Finalizar compra</title>
+  <meta name="description" content="Finalize sua compra na Loja Impossível.">
+  <title>Loja Impossível | Finalizar Compra</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -13,8 +14,14 @@
   <header class="site-header">
     <nav class="navbar" aria-label="Navegação principal">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Loja Escola</a>
-        <a class="nav-link" href="index.html">Continuar comprando</a>
+        <a class="navbar-brand fw-bold" href="index.html">🛸 Loja Impossível</a>
+        <div class="ms-auto d-flex gap-3 align-items-center">
+            <a class="nav-link" href="index.html">Vitrine</a>
+            <a class="nav-link position-relative" href="carrinho.html">
+                🛒 Carrinho
+                <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none;">0</span>
+            </a>
+        </div>
       </div>
     </nav>
   </header>
@@ -22,105 +29,93 @@
   <main id="conteudo" class="container py-5">
     <div class="row g-5">
       <section class="col-lg-8" aria-labelledby="titulo-checkout">
-        <p class="eyebrow">Finalização</p>
-        <h1 id="titulo-checkout">Dados para compra</h1>
-        <p class="text-secondary">Este formulário é uma simulação e não processa pagamentos reais.</p>
-
+        <h1 id="titulo-checkout" class="mb-4 text-light">Dados para a entrega interdimensional</h1>
+        
         <form id="checkoutForm" novalidate>
-          <fieldset class="mb-5">
-            <legend class="h4">Dados pessoais</legend>
+          <fieldset class="mb-4">
+            <legend class="h5 text-accent">Dados pessoais</legend>
             <div class="row g-3">
-              <div class="col-md-7">
-                <label for="nome" class="form-label">Nome completo</label>
-                <input class="form-control" id="nome" name="nome" type="text" autocomplete="name" required>
+              <div class="col-md-12">
+                <label for="nome" class="form-label text-light">Nome completo</label>
+                <input class="form-control" id="nome" name="nome" type="text" required>
                 <div class="invalid-feedback">Informe seu nome.</div>
               </div>
-              <div class="col-md-5">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input class="form-control" id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="(11) 99999-9999">
-              </div>
-              <div class="col-12">
-                <label for="email" class="form-label">E-mail</label>
-                <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+              <div class="col-md-6">
+                <label for="email" class="form-label text-light">E-mail</label>
+                <input class="form-control" id="email" name="email" type="email" required>
                 <div class="invalid-feedback">Informe um e-mail válido.</div>
               </div>
-            </div>
-          </fieldset>
-
-          <fieldset class="mb-5">
-            <legend class="h4">Endereço de entrega</legend>
-            <p class="text-secondary">O campo CEP está preparado para uma futura integração com a API ViaCEP.</p>
-            <div class="row g-3">
-              <div class="col-md-5">
-                <label for="cep" class="form-label">CEP</label>
-                <div class="input-group">
-                  <input class="form-control" id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" aria-describedby="ajudaCep" required>
-                  <button class="btn btn-outline-secondary" id="buscarCep" type="button">Buscar CEP</button>
-                </div>
-                <div id="ajudaCep" class="form-text">Digite 8 números. Ex.: 01001-000.</div>
-              </div>
-              <div class="col-md-7">
-                <label for="logradouro" class="form-label">Endereço</label>
-                <input class="form-control" id="logradouro" name="logradouro" type="text" autocomplete="address-line1" required>
-              </div>
-              <div class="col-md-3">
-                <label for="numero" class="form-label">Número</label>
-                <input class="form-control" id="numero" name="numero" type="text" required>
-              </div>
-              <div class="col-md-9">
-                <label for="complemento" class="form-label">Complemento <span class="text-secondary">(opcional)</span></label>
-                <input class="form-control" id="complemento" name="complemento" type="text" autocomplete="address-line2">
-              </div>
-              <div class="col-md-5">
-                <label for="bairro" class="form-label">Bairro</label>
-                <input class="form-control" id="bairro" name="bairro" type="text">
-              </div>
-              <div class="col-md-5">
-                <label for="cidade" class="form-label">Cidade</label>
-                <input class="form-control" id="cidade" name="cidade" type="text" autocomplete="address-level2" required>
-              </div>
-              <div class="col-md-2">
-                <label for="estado" class="form-label">UF</label>
-                <input class="form-control" id="estado" name="estado" type="text" maxlength="2" autocomplete="address-level1" required>
+              <div class="col-md-6">
+                <label for="telefone" class="form-label text-light">Telefone</label>
+                <input class="form-control" id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" required>
+                <div class="invalid-feedback">Informe um telefone válido.</div>
               </div>
             </div>
-            <div id="cepFeedback" class="mt-3" role="status" aria-live="polite"></div>
           </fieldset>
 
           <fieldset class="mb-4">
-            <legend class="h4">Pagamento</legend>
-            <label for="pagamento" class="form-label">Forma de pagamento</label>
-            <select class="form-select" id="pagamento" name="pagamento" required>
-              <option value="">Selecione...</option>
-              <option value="pix">Pix</option>
-              <option value="credito">Cartão de crédito</option>
-              <option value="boleto">Boleto</option>
-            </select>
+            <legend class="h5 text-accent">Endereço de entrega</legend>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="cep" class="form-label text-light">CEP</label>
+                <div class="input-group">
+                  <input class="form-control" id="cep" name="cep" type="text" maxlength="9" required>
+                  <button class="btn btn-outline-light" id="buscarCep" type="button">Buscar</button>
+                </div>
+                <div id="cepFeedback" class="form-text text-warning mt-1" role="status" aria-live="polite"></div>
+              </div>
+              <div class="col-md-8">
+                <label for="logradouro" class="form-label text-light">Endereço</label>
+                <input class="form-control" id="logradouro" name="logradouro" type="text" required>
+              </div>
+              <div class="col-md-3">
+                <label for="numero" class="form-label text-light">Número</label>
+                <input class="form-control" id="numero" name="numero" type="text" required>
+              </div>
+              <div class="col-md-5">
+                <label for="bairro" class="form-label text-light">Bairro</label>
+                <input class="form-control" id="bairro" name="bairro" type="text" required>
+              </div>
+              <div class="col-md-3">
+                <label for="cidade" class="form-label text-light">Cidade</label>
+                <input class="form-control" id="cidade" name="cidade" type="text" required>
+              </div>
+              <div class="col-md-1">
+                <label for="estado" class="form-label text-light">UF</label>
+                <input class="form-control" id="estado" name="estado" type="text" maxlength="2" required>
+              </div>
+            </div>
           </fieldset>
 
-          <div class="form-check mb-4">
-            <input class="form-check-input" id="termos" name="termos" type="checkbox" required>
-            <label class="form-check-label" for="termos">Confirmo que os dados preenchidos são apenas para esta simulação educacional.</label>
-          </div>
-
-          <button class="btn btn-dark btn-lg" type="submit">Concluir compra simulada</button>
+          <button class="btn btn-accent btn-lg w-100" type="submit">Concluir Compra</button>
         </form>
       </section>
 
       <aside class="col-lg-4" aria-labelledby="titulo-resumo">
         <div class="summary-box">
-          <h2 id="titulo-resumo" class="h4">Resumo</h2>
-          <div class="d-flex justify-content-between"><span>Mochila Horizonte</span><span>R$ 189,90</span></div>
-          <div class="d-flex justify-content-between mt-2"><span>Frete</span><span>Grátis</span></div>
-          <hr>
-          <div class="d-flex justify-content-between fw-bold"><span>Total</span><span>R$ 189,90</span></div>
-          <p class="small text-secondary mt-3 mb-0">O resumo está fixo de propósito. Torná-lo dinâmico é uma melhoria sugerida.</p>
+          <h2 id="titulo-resumo" class="h5 mb-3 text-accent">Resumo do Pedido</h2>
+          <div id="resumoItens"></div>
+          <hr class="border-secondary">
+          <div class="d-flex justify-content-between mb-2 text-light">
+            <span>Frete</span>
+            <span class="text-success">Grátis (Portal)</span>
+          </div>
+          <div class="d-flex justify-content-between fw-bold fs-5 text-light">
+            <span>Total</span>
+            <span id="resumoTotal" class="text-accent">R$ 0,00</span>
+          </div>
         </div>
       </aside>
     </div>
   </main>
 
-  <footer class="site-footer py-4"><div class="container"><p class="mb-0">Loja Escola · Projeto educacional.</p></div></footer>
-  <script src="js/checkout.js"></script>
+  <footer class="site-footer py-4 text-center border-top border-secondary mt-5">
+    <div class="container"><p class="mb-0 text-secondary">Loja Impossível · Simulação.</p></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/checkout.js" defer></script>
 </body>
 </html>

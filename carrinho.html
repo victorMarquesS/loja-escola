@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loja Impossível | Meu Carrinho</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">🛸 Loja Impossível</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Vitrine</a></li>
+            <li class="nav-item">
+                <a class="nav-link position-relative active" href="carrinho.html">
+                    🛒 Carrinho
+                    <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none;">0</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="container py-5">
+    <h1 class="mb-4 text-light fw-bold">Seu Carrinho Interdimensional</h1>
+    
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div id="listaCarrinho" class="d-flex flex-column gap-3"></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="summary-box">
+          <h2 class="h4 mb-3 text-accent">Resumo</h2>
+          <div class="d-flex justify-content-between mb-2 text-light">
+            <span>Total de Itens:</span>
+            <span id="totalItensCarrinho" class="fw-bold">0</span>
+          </div>
+          <div class="d-flex justify-content-between mb-4 fw-bold fs-5 text-light">
+            <span>Total:</span>
+            <span id="totalCarrinho" class="text-accent">R$ 0,00</span>
+          </div>
+          <a href="checkout.html" class="btn btn-accent btn-lg w-100" id="btnIrCheckout">Ir para o Checkout</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer py-4 text-center border-top border-secondary mt-5">
+    <div class="container"><p class="mb-0 text-secondary">Loja Impossível · Projeto educacional.</p></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/cart-page.js" defer></script>
+</body>
+</html>

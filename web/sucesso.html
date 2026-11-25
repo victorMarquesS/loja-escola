@@ -1,36 +1,44 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Confirmação da compra simulada da Loja Escola.">
-  <title>Loja Escola | Compra concluída</title>
+  <meta name="description" content="Compra concluída na Loja Impossível.">
+  <title>Loja Impossível | Compra Concluída</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Navegação principal">
-      <div class="container"><a class="navbar-brand fw-bold" href="index.html">Loja Escola</a></div>
+      <div class="container"><a class="navbar-brand fw-bold" href="index.html">🛸 Loja Impossível</a></div>
     </nav>
   </header>
 
   <main id="conteudo" class="container py-5">
     <section class="success-panel mx-auto text-center" aria-labelledby="titulo-sucesso">
       <div class="success-icon" aria-hidden="true">✓</div>
-      <p class="eyebrow">Pedido simulado concluído</p>
-      <h1 id="titulo-sucesso">Compra concluída com sucesso!</h1>
-      <p class="lead" id="mensagemCliente">Seus dados foram validados e o fluxo educacional chegou ao final.</p>
-      <dl class="order-data">
-        <div><dt>Número do pedido</dt><dd id="numeroPedido">PED-000000</dd></div>
-        <div><dt>Status</dt><dd>Simulação concluída</dd></div>
+      <p class="eyebrow text-warning">Pedido finalizado</p>
+      <h1 id="titulo-sucesso" class="mb-4 text-light">A realidade foi distorcida com sucesso!</h1>
+      <p class="lead text-secondary" id="mensagemCliente">Aguarde, em breve seu produto impossível aparecerá do nada.</p>
+      
+      <dl class="order-data text-start">
+        <div><dt>Número do pedido</dt><dd id="numeroPedido">...</dd></div>
+        <div><dt>Total pago</dt><dd id="totalPedido">...</dd></div>
+        <div><dt>Entregar para</dt><dd id="nomePedido">...</dd></div>
       </dl>
-      <a class="btn btn-dark" href="index.html">Voltar para a loja</a>
+      
+      <a class="btn btn-accent mt-4" href="index.html">Voltar para a loja</a>
     </section>
   </main>
 
-  <footer class="site-footer py-4"><div class="container"><p class="mb-0">Loja Escola · Nenhuma cobrança real foi realizada.</p></div></footer>
-  <script src="js/success.js"></script>
+  <footer class="site-footer py-4 text-center border-top border-secondary mt-5">
+    <div class="container"><p class="mb-0 text-secondary">Loja Impossível.</p></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/success.js" defer></script>
 </body>
 </html>
